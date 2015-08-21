@@ -1,0 +1,11 @@
+{
+ "title" : "角色权限信息"
+ ,
+ "description" : "角色权限信息"
+ ,
+ "no-header" : true
+ ,
+ "scripts" : ["jquery-ui" , "fullcalendar" , "bootbox"]
+ ,
+ "styles" : ["jquery-ui" , "gritter" , "bootstrap-timepicker" , "datepicker"]
+}

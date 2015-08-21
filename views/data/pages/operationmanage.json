@@ -1,0 +1,13 @@
+{
+ "title" : "操作管理"
+ ,
+ "description" : "操作管理"
+ ,
+ "no-header" : true
+ ,
+ "scripts" : ["jquery-ui" , "slimscroll" ,  "sparkline" ,"bootstrap-modal"]
+ ,
+ "styles" : ["bootstrap-timepicker" , "datepicker"]
+ ,
+ "ie_scripts" : [{"version":8, "name":"excanvas"}]
+}

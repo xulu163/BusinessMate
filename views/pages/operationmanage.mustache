@@ -1,0 +1,50 @@
+<div class="row-fluid">
+	<div class="span12">
+		<h3 class="header smaller lighter blue">
+			操作管理
+			<span class="pull-right">
+				<button id="operbtn" class="btn btn-purple btn-small">+添加</button>
+			</span>
+			<span class="pull-right" style="margin-right:10px;">
+					<label id="itemLabel">
+						展现
+						<select id="item">
+							<option value="10" selected="selected">10</option>
+							<option value="20">20</option>
+							<option value="30">30</option>
+						</select>
+						条
+					</label>
+				</span>
+		</h3>
+		<table class="table table-striped table-bordered table-hover">
+			<thead>
+				<tr>
+					<th class="center">操作名</th>
+					<th class="center">操作</th>
+				</tr>
+			</thead>
+			<tbody id="operbody"></tbody>
+		</table>
+		<div id="paginator"></div>
+	</div>
+	<div id="operAdd" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+			<h3 id="myModalLabel">添加用户</h3>
+		</div>
+		<div class="modal-body">
+			<form class="form-horizontal">
+				<div class="control-group">
+					<label class="control-label" for="username">角色名</label>
+					<div class="controls">
+						<input type="text" id="username" placeholder="username"></div>
+				</div>
+			</form>
+		</div>
+		<div class="modal-footer">
+			<button id="operAddSave"class="btn btn-primary">确定</button>
+			<button id="release" class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
+		</div>
+	</div>
+</div>

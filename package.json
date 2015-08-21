@@ -1,0 +1,27 @@
+{
+  "name": "BusinessMate",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "async": "latest",
+    "connect-flash": "^0.1.1",
+    "connect-mongo": ">= 0.1.7",
+    "connect-timeout": "^1.6.2",
+    "excel-export": "^0.4.1",
+    "express": "3.2.5",
+    "express-resource": "1.0.0",
+    "hogan.js": "2.0.0",
+    "htmlparser2": "3.0.5",
+    "log4js": "^0.6.26",
+    "mongoose": "3.6.11",
+    "passport": "^0.3.0",
+    "passport-local": "^1.0.0",
+    "require-csv": "0.0.1",
+    "stylus": "latest",
+    "underscore": "^1.8.3",
+    "xtend": "2.0.3"
+  }
+}

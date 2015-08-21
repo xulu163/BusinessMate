@@ -1,0 +1,50 @@
+#deskHeader {
+/*	margin-top:10px;*/
+	margin-bottom:18px;
+}
+
+#taskRemark{
+	width: 100%;
+	height: 100%;
+	margin-left: 10px;
+	padding-left: 20px;
+	padding-right: 80px;
+}
+
+.hidInput{
+	border-top:1px; 
+	border-left:0px ; 
+	border-right:1px;
+	border-bottom: 1px solid #CCC;
+	background-color:transparent;
+	outline:none;
+	color: #5090c1;
+	margin-right: 10px; 
+	padding-left: 5px;
+}
+
+.desktop_search {
+	font-size: 14px;
+}
+
+#dsearchBtn {
+	margin-top:-10px;
+	margin-left: 60px;
+}
+
+#beginDate, #endDate{
+	width: 74px;
+	height: 16px;
+}
+
+#desk_task{
+	margin-top:15px;
+}
+
+#pholder1, #pholder2 {
+	min-height: 180px;
+}
+
+#pholder3 {
+	min-height: 240px;
+}

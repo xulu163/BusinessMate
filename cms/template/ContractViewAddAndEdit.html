@@ -1,0 +1,211 @@
+<style>
+      
+     .remark,.money {
+     	margin-left:40px;
+     }
+
+    .Wdate {
+    	margin-left:10px;
+    }
+
+
+    .cmdBtn{
+    	margin:5px 0;
+		padding-left:15px;
+    }
+
+	.basicInfo {
+			
+			font-size:20px;
+			padding-left:15px;
+			margin: 10px auto;
+			
+	}
+		
+	   div.bs-docs-example {
+			padding-top:20px;
+	   }
+	   div.contract,  {
+			margin:4px;
+			padding:2px;
+	   }
+	   
+	  
+		.new {
+			font-size: 25px;
+			
+		}
+.template{
+			
+	font-size: 20px;
+			
+}
+
+.eventsBoard{
+	width: 800px;
+	margin-left: 0px; 
+}
+		
+      
+    </style>
+
+<div class="contract">
+	<table>
+		<tr>
+			<th>
+				<label class="new">新建合同</label>
+			</th>
+			<th>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;</th>
+			<th>
+				<label class="template">合同模版</label>
+			</th>
+			<th>&nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;</th>
+			<th>
+				<div class="btn-group">
+
+					<button class="btn dropdown-toggle" id="selectTemplateBtn" data-toggle="dropdown">
+						选择模板
+						<span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu" id="templateList">
+					</ul>
+				</div>
+			</th>
+		</tr>
+	</table>
+</div>
+
+<div>
+	<div>
+		<label class="basicInfo">基本信息</label>
+	</div>
+	<div class="basicTable" style="width: 500px;">
+
+		<div class="input-prepend">
+			<span class="add-on">合同编号</span>
+			<input class="span3 prependedInput" id="contractId" type="text" value="<%- myId %>"></div>
+		<br>
+		<div class="input-prepend">
+			<span class="add-on">合同名称</span>
+			<input class="span3 prependedInput" id="name" type="text" value="<%- name %>"></div>
+
+		<br>
+		<div class="input-prepend">
+			<span class="add-on">&nbsp;&nbsp;甲&nbsp;&nbsp;&nbsp;方&nbsp;&nbsp;</span>
+			<input class="span3 prependedInput" id="partyA" type="text" value="<%- partyA%>"></div>
+
+		<br>
+		<div class="input-prepend">
+			<span class="add-on">&nbsp;&nbsp;乙&nbsp;&nbsp;&nbsp;方&nbsp;&nbsp;</span>
+			<input class="span3 prependedInput" id="partyB" type="text" value="<%- partyB%>"></div>
+
+		<br>
+
+		<div id="signPicker" class="input-append input-prepend date" data-date="" data-date-format="yyyy-mm-dd">
+			<span class="add-on">签订日期</span>
+			<input type="text" class="span3" id="signDate" value="<%- signDate%>" readonly="">
+			<span class="add-on"> <i class="icon-calendar"></i>
+			</span>
+		</div>
+
+		<div id="beginPicker" class="input-append input-prepend date" data-date="" data-date-format="yyyy-mm-dd">
+			<span class="add-on">开始时间</span>
+			<input type="text" class="span3" id="beginDate" value="<%- beginDate %>" readonly="">
+			<span class="add-on"> <i class="icon-calendar"></i>
+			</span>
+		</div>
+
+		<div id="endPicker" class="input-append input-prepend date" data-date="" data-date-format="yyyy-mm-dd">
+			<span class="add-on">结束时间</span>
+			<input type="text" class="span3" id="endDate" value="<%- endDate %>" readonly="">
+			<span class="add-on">
+				<i class="icon-calendar"></i>
+			</span>
+		</div>
+
+		<script type="text/javascript">
+			$('#signPicker').datepicker();
+			$('#signPicker').datepicker().on('changeDate',function(env){
+			$('#signPicker').datepicker('hide');
+			});
+			$('#beginPicker').datepicker();
+			$('#beginPicker').datepicker().on('changeDate',function(env){
+					$('#beginPicker').datepicker('hide');
+			});
+			$('#endPicker').datepicker();
+			$('#endPicker').datepicker().on('changeDate',function(env){
+					$('#endPicker').datepicker('hide');
+			});
+		</script>
+
+		<br>
+
+		<div class="input-prepend">
+			<span class="add-on">&nbsp;&nbsp;金&nbsp;&nbsp;&nbsp;额&nbsp;&nbsp;</span>
+			<input class="span3 prependedInput" id="amount" type="text" value="<%- amount%>"></div>
+
+		<br>
+		<div class="input-prepend">
+			<span class="add-on">&nbsp;&nbsp;状&nbsp;&nbsp;&nbsp;态&nbsp;&nbsp;</span>
+			<input class="span3 prependedInput" id="contractState" type="text" value="<%- state %>"></div>
+
+	</div>
+</div>
+
+<div class="bs-docs-example events-panel">
+	<div style="height: 50px;">
+		<div style="float:left;">
+			<label class="basicInfo">事件</label>
+		</div>
+
+		<div class="btn-group" style="float:right;">
+
+			<button class="btn dropdown-toggle" data-toggle="dropdown">
+				添加事件
+				<span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu">
+				<li>
+					<a data-target="#" id="dropdown_customEvent">自定义事件</a>
+				</li>
+				<li>
+					<a data-target="#" id="dropdown_priceEvent">回款事件</a>
+				</li>
+			</ul>
+		</div>
+
+	</div>
+
+	<ul class="eventsBoard" id="eventsBoard"></ul>
+
+	<div class="cmdBtn" style="float:right;">
+		<a class="btn btn-success" id="submit" href="#/contracts">完成</a>
+	</div>
+<div id="CmdBtnGroup">
+	<div class="cmdBtn" style="float:right;">
+		<a class="btn" id="back" href="#/contracts">返回</a>
+	</div>
+	<div class="cmdBtn" style="float:left;">
+		<a class="btn btn-primary" id="saveAsTemplate" href="#saveModel">保存为模板</a>
+	</div>
+</div>
+</div>
+
+<!-- 模态对话框 -->
+
+<div id="saveModel" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">保存模板</h3>
+  </div>
+  <div class="modal-body">
+  		<span><label class="control-label">模板名称:</label></span>
+  		<span>
+  			<input type="text" id="modelName" placeholder="模板名称">
+  		</span>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">返回</button>
+    <button class="btn btn-primary">保存</button>
+  </div>
+</div>
