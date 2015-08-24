@@ -1,0 +1,11 @@
+{
+ "title" : "合同管理"
+ ,
+ "description" : "合同列表"
+ ,
+ "no-header" : true
+ ,
+ "scripts" : ["jquery-ui" , "fullcalendar" , "bootbox"]
+ ,
+ "styles" : ["jquery-ui" , "gritter" , "bootstrap-timepicker" , "datepicker"]
+}

@@ -1,0 +1,32 @@
+<div>
+	<h3 class="row-fluid header smaller lighter purple" style="margin-top:0px">
+		<span class="span12">操作日志</span>
+		<div class="pull-right" style="margin-top:-30px; height:32px;">
+			<label id="itemLabel">
+				展现
+				<select id="item" class="mySelect">
+					<option value="10" selected="selected">10</option>
+					<option value="25">20</option>
+					<option value="50">30</option>
+				</select>
+				条
+			</label>
+		</div>
+	</h3>
+</div>
+
+<table class="table table-striped table-bordered table-hover">
+	<thead>
+		<tr>
+			<th class="center">操作时间</th>
+			<th class="center">操作用户</th>
+			<th class="center">合同名称</th>
+			<th class="center">操作类型</th>
+			<th class="center">操作资源</th>
+			<th class="center">合同状态</th>
+		</tr>
+	</thead>
+	<tbody id="operationlog1"></tbody>
+</table>
+<div id="tip"></div>
+<div id="paginator"></div>

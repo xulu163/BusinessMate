@@ -1,0 +1,33 @@
+<div class="row-fluid" style="margin-top:-10px">
+<input id="getYear" type="hidden" value="{{params.year}}">
+<input id="getMonth" type="hidden" value="{{params.month}}">
+<input id="getType" type="hidden" value="{{params.type}}"
+	<div class="span12">
+		<div id="table-header">
+			<h3 class="header smaller lighter blue">
+				<span style="font-size:24px" id="spanText1"></span>
+				<span style="font-size:16px" id="spanText2">
+				</span>
+
+				
+			</h3>
+		</div>
+		<table id="table_bug_report" class="table table-striped table-bordered table-hover">
+			<thead>
+				<tr>
+					<th class="center" style="width:200px">合同名称</th>
+					<th class="hidden-480 center">甲方</th>
+					<th class="hidden-480 center">乙方</th>
+					<th class="hidden-480 center">事件名称</th>
+					<th class="center">合同金额</th>
+					<th class="center">回款金额</th>
+					<th class="center">回款日期</th>
+				</tr>
+			</thead>
+			<tbody id="table1"></tbody>
+		</table>
+
+		<div id="paginator"></div>
+	</div>
+</div>
+<!--table1-->

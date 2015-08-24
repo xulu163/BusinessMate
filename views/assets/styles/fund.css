@@ -1,0 +1,21 @@
+.fund_search {
+	font-size: 14px;
+}
+
+#fsearchBtn {
+	margin-top:-10px;
+	margin-left: 30px;
+}
+
+#fbeginDate, #fendDate{
+	width:90px;
+}
+
+#selectItem {
+	margin-left: 20px;
+}
+
+#exportExcel_fun {
+	margin-top:-10px;
+	margin-left:5px;
+}

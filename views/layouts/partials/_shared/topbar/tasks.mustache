@@ -1,0 +1,191 @@
+<li id="taskShow" class="grey">
+	<a data-toggle="dropdown" class="dropdown-toggle" href="#"> <i class="icon-tasks"></i>
+		<span class="badge badge-grey">代办任务</span>
+	</a>
+
+	<ul class="pull-right dropdown-navbar dropdown-menu dropdown-caret dropdown-closer"  style="width:350px; height: relative">
+		<li>
+
+			<div id="task-tab" class="tab-pane active">
+				<h4 class="smaller lighter green"> <i class="icon-list"></i>
+					Task to finish
+				</h4>
+
+				<div id="taskToFinish"></div>
+			</div>
+		</li>
+	</ul>
+</li>
+
+<script src='{{{path.assets}}}/js/jquery-1.9.1.min.js'></script>
+<script>
+$(function() {
+
+	//为代办任务中添加的每一个checkbox动态添加id
+	var checkboxId = new Array('a','b','c','d','e','f','g','h','i','j','k',
+		             'l','m','n','o','p','q','r','s','t');
+	var idIndex=0;
+
+	var liColor = new Array('item-orange','item-red','item-default','item-blue',	
+			'item-grey','item-green','item-pink','item-orange','item-red','item-default','item-blue',	'item-grey','item-green','item-pink','item-orange','item-red','item-default','item-blue',	'item-grey','item-green','item-pink');
+
+	$.get("api/contracts", function(data, status) {
+
+		$.each(data, function(i, contract) {
+
+			<!--日期格式化start-->
+			Date.prototype.format = function(fmt)   
+				{ //author: meizz   
+				  var o = {   
+				    "M+" : this.getMonth()+1,                 //月份   
+				    "d+" : this.getDate(),                    //日   
+				    "h+" : this.getHours(),                   //小时   
+				    "m+" : this.getMinutes(),                 //分   
+				    "s+" : this.getSeconds(),                 //秒   
+				    "q+" : Math.floor((this.getMonth()+3)/3), //季度   
+				    "S"  : this.getMilliseconds()             //毫秒   
+				  };   
+				  if(/(y+)/.test(fmt))   
+				    fmt=fmt.replace(RegExp.$1, (this.getFullYear()+"").substr(4 - RegExp.$1.length));   
+				  for(var k in o)   
+				    if(new RegExp("("+ k +")").test(fmt))   
+				  fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length)));   
+				  return fmt;   
+				}
+				<!--日期格式化end-->
+
+			var nowDate = new Date().format("yyyy-MM-dd");  
+
+			var taskEvents = contract.events;
+			var lastDate = taskEvents[0].date;
+			var lastIndex = 0;
+			for(var i=1;i<taskEvents.length;i++) {
+				if(lastDate >= nowDate) {
+						if(lastDate > taskEvents[i].date) {
+							lastDate = taskEvents[i].date;
+							lastIndex = i;
+						}
+				}
+			}
+
+			var tdata = {
+				name			: 	contract.name,
+				title			:   contract.events[lastIndex].title,
+				date 			:   lastDate
+			};
+			var t1="<ul class='item-list'><li class='"+liColor[idIndex]+"'><label>"; 	
+			var t2="<input type='checkbox' id='"+checkboxId[idIndex]+"'>";
+			var t3= "  "+"<span class='lbl'>"+tdata.name+" >>  "+tdata.title;
+			var t4= "  :  "+tdata.date + "</span></label></li></ul>";
+			var template = t1 + t2 + t3 + t4;
+
+			$('#taskToFinish').append(template);
+
+			idIndex++;
+			
+			var tempIDValue = checkboxId[idIndex-1];
+			var tempID;
+
+			if(tempIDValue == 'a')
+				tempID = $("#a");
+			else if(tempIDValue == 'b')
+				tempID = $("#b");
+			else if(tempIDValue == 'c')
+				tempID = $("#c");
+			else if(tempIDValue == 'd')
+				tempID = $("#d");
+			else if(tempIDValue == 'e')
+				tempID = $("#e");
+			else if(tempIDValue == 'f')
+				tempID = $("#f");
+			else if(tempIDValue == 'g')
+				tempID = $("#g");
+			else if(tempIDValue == 'h')
+				tempID = $("#h");
+			else if(tempIDValue == 'i')
+				tempID = $("#i");
+			else if(tempIDValue == 'j')
+				tempID = $("#j");
+			else if(tempIDValue == 'k')
+				tempID = $("#k");
+			else if(tempIDValue == 'l')
+				tempID = $("#l");
+			else if(tempIDValue == 'm')
+				tempID = $("#m");
+			else if(tempIDValue == 'n')
+				tempID = $("#n");
+			else if(tempIDValue == 'o')
+				tempID = $("#o");
+			else if(tempIDValue == 'p')
+				tempID = $("#p");
+			else if(tempIDValue == 'q')
+				tempID = $("#q");
+			else if(tempIDValue == 'r')
+				tempID = $("#r");
+			else if(tempIDValue == 's')
+				tempID = $("#s");
+			else if(tempIDValue == 't')
+				tempID = $("#t");
+
+
+			tempID.bind("click", function() {
+
+
+					var tID = this.id;
+
+					var dom = document.getElementById(tID);
+					var checkValue = dom.checked;
+
+					var check = confirm("你确定勾选此任务吗？");
+		
+					if(check) {
+						if(!checkValue) {
+							$(this).prop("checked",true);
+							checkValue = true;
+						}
+					}else {
+						if(checkValue) {
+							$(this).prop("checked",false);
+							checkValue = false;
+						}
+					}
+
+					var postData = {
+							_id 	    : contract._id,
+							id  	    : contract.id,
+							title     : tdata.title,
+							completed : checkValue
+					};
+
+					$.ajax({
+							url: 'http://localhost:3000/tests' + '/' + contract.id,
+							type: 'put',
+							data: postData,
+							error: function(){
+								console.info('Error loading PHP document');
+							},
+							success: function(result){}
+
+					});
+			});
+
+		});
+	});
+
+});
+
+</script>
+
+
+
+
+<li class="item-orange">
+	<label class="inline">
+		<input type="checkbox">
+		<span class="lbl"> Answering customer questions</span>
+	</label>
+
+	<div class="pull-right easy-pie-chart percentage easyPieChart" data-size="30" data-color="#ECCB71" data-percent="42" style="width: 30px; height: 30px; line-height: 30px;">
+		<span class="percent">42</span>%
+	<canvas width="30" height="30"></canvas></div>
+</li>

@@ -1,0 +1,250 @@
+<input id="contractID" type="hidden" value="{{params._id}}">
+
+<ul class="nav nav-tabs" id="myTab">
+	<li class="active">
+		<a data-toggle="tab" href="#info"> <i class="green  icon-info-sign bigger-110"></i>
+			合同列表
+		</a>
+	</li>
+	<li class="">
+		<a data-toggle="tab" href="#caigouneirong"> <i class="blue icon-tasks bigger-110"></i>
+			采购内容
+		</a>
+	</li>
+	<li class="">
+		<a data-toggle="tab" href="#attachments">
+			<i class="blue icon-download-alt bigger-110"></i>
+			附件列表
+		</a>
+	</li>
+</ul>
+
+<div class="tab-content non-overflow">
+	<div id="info" class="tab-pane active">
+		<form id="validateForm">
+			<div class="widget-box transparent">
+				<div class="widget-header">
+					<h3 class="smaller lighter green">合同基本信息</h3>
+					<div class="widget-toolbar no-border">
+						<div class="btn-group">
+							<button id="templateBtn" data-toggle="dropdown" class="btn btn-small btn-info dropdown-toggle">
+								使用模板
+								<i class="icon-angle-down icon-on-right"></i>
+							</button>
+
+							<ul id="templateList" class="dropdown-menu pull-right"></ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="contract-form form-horizontal row-fluid">
+				<div class="span6">
+					<div class="control-group ">
+						<div class=" title_left">采购编号</div>
+						<div class="controls">
+							<input id="myId" name="myId" type="text"  class="span10" placeholder="合同编号"></div>
+					</div>
+					<div class="control-group ">
+						<div class=" title_left">甲方</div>
+						<div class="controls">
+							<select name="partyA" id="partyA1" class="span7"></select>
+							<input id="partyAabbr" name="partyAabbr" type="text"  class="span3" placeholder="简称" readonly style="margin-left:2px;"></div>
+
+					</div>
+					<div class="control-group ">
+						<div class=" title_left">甲方部门</div>
+						<div class="controls">
+							<input id="partyADept" name="partyADept" type="text"  class="span10" placeholder="部门"></div>
+
+					</div>
+					<div class="control-group ">
+						<div class=" title_left">签订日期</div>
+						<div class="controls">
+							<input name="signPicker" class="date-picker span10" id="signPicker" type="text" data-date-format="yyyy-mm-dd" readonly="true"></div>
+					</div>
+
+					<div class="control-group">
+						<div class=" title_left">结束日期</div>
+						<div class="controls">
+							<input name="endPicker" class="date-picker span10" id="endPicker" type="text" data-date-format="yyyy-mm-dd" readonly="true"></div>
+					</div>
+					<div class="control-group">
+						<div class=" title_left">销售负责人</div>
+						<div class="controls">
+							<select name="sals_person" id="sals_person" class="span10">
+								<option selected value="">--请选择--</option>
+								<option  value="wangyonghe">王永和</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="control-group">
+						<div class=" title_left">合同录入人</div>
+						<div class="controls">
+							<select name="contract_person" id="contract_person" class="span10">
+								<option selected value="">--请选择--</option>
+
+							</select>
+						</div>
+					</div>
+
+					<div class="control-group">
+						<div class=" title_left">状态</div>
+						<div id="state" class="controls item_state">已中标</div>
+					</div>
+
+				</div>
+
+				<div class="span6">
+					<div class="control-group">
+						<div class=" title_right">合同名称</div>
+						<div class="controls">
+							<input id="name" name="name" type="text"  class="span10" placeholder="合同名称"></div>
+					</div>
+
+					<div class="control-group">
+						<div class=" title_right">乙方</div>
+						<div class="controls">
+							<select name="partyB" id="partyB1" class="span7"></select>
+							<input id="partyBabbr" name="partyBabbr" type="text"  class="span3" placeholder="简称" readonly style="margin-left:2px;"></div>
+					</div>
+
+					<div class="control-group ">
+						<div class=" title_right">实施业绩归属部门</div>
+						<div class="controls">
+							<input id="partyBDept" name="partyBDept" type="text"  class="span10" placeholder="部门"></div>
+
+					</div>
+
+					<div class="control-group">
+						<div class=" title_right">中标日期</div>
+						<div class="controls">
+							<input name="beginPicker" class="date-picker span10" id="beginPicker" type="text" data-date-format="yyyy-mm-dd" readonly="true"></div>
+					</div>
+
+					<div class="control-group">
+						<div class=" title_right">金额</div>
+						<div class="controls">
+							<input id="amount" name="amount" type="text"  class="span10" placeholder="金额" onKeyUp="this.value=this.value.replace(/\D/g,'')"></div>
+					</div>
+					<div class="control-group">
+						<div class=" title_right">商务负责人</div>
+						<div class="controls">
+							<select name="business_person" id="business_person" class="span10">
+								<option selected value="">--请选择--</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="control-group">
+						<div class=" title_right">销售业绩归属部门</div>
+						<div class="controls">
+							<select name="contract_dept" id="contract_dept" class="span10">
+								<option selected value="">--请选择--</option>
+								<option name="11" value="北京总部">北京总部</option>
+								<option name="22" value="广州分公司">广州分公司</option>
+								<option name="33" value="深圳分公司">深圳分公司</option>
+								<option name="33" value="北区">北区</option>
+								<option name="33" value="南区">南区</option>
+								<option name="33" value="航空事业部">航空事业部</option>
+								<option name="44" value="合作发展部">合作发展部</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="control-group">
+						<div class=" title_right">合同性质</div>
+						<div class="controls">
+							<select name="contract_character" id="contract_character" class="span10">
+								<option selected value="">--请选择--</option>
+								<option name="11" value="人天结算">人天结算</option>
+								<option name="22" value="固定成本">固定成本</option>
+							</select>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+		</form>
+
+		<div class="widget-box transparent">
+			<div class="widget-header">
+				<h3 class="smaller lighter green">合同事件列表</h3>
+				<div class="widget-toolbar no-border">
+					<div class="btn-group">
+						<button data-toggle="dropdown" class="btn btn-small btn-info dropdown-toggle">
+							<i class="icon-plus icon-on-left"></i>
+							增加事件
+							<i class="icon-angle-down icon-on-right"></i>
+						</button>
+
+						<ul class="dropdown-menu pull-right">
+							<li id="customEventBtn">
+								<a>自定义事件</a>
+							</li>
+
+							<li id="priceEventBtn">
+								<a>回款事件</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<ul id="eventsList">
+			<div id="blankWarn" class="alert alert-warning">请添加合同事件.</div>
+		</ul>
+		<div class="row-fluid bottom-cmd">
+			<div class="span2">
+				<button id="saveAsTemplateBtn" class="btn btn-primary span12">保存为模板</button>
+			</div>
+			<div class="span6 hidden-phone"></div>
+			<div class="span2">
+				<a id="backBtn" class="btn span12" href="/contracts">返回</a>
+			</div>
+			<div class="span2">
+				<button id="saveBtn" class="btn btn-success span12" data-last="Finish">保存合同</button>
+			</div>
+		</div>
+	</div>
+	<div id="caigouneirong" class="tab-pane">
+
+		<div class='span12 widget-box'>
+			<div class='widget-header widget-header-flat widget-header-small'>
+				<div class='span5'>
+					<span class='celltitle'>采购内容</span>
+				</div>
+				<div class='span3 widget-toolbar'>
+					<span class='celltitle'>单价</span>
+				</div>
+				<div class='span3 widget-toolbar'>
+					<span class='celltitle'>数量（人天）</span>
+				</div>
+				<div class='span1 widget-toolbar'>
+					<button id="caigou_add"class='btn btn-mini bigger btn-info '>增行</button>
+				</div>
+			</div>
+			<div id="caigou">
+				<div id="caigou1"class='widget-body widget-header-small'>
+					<div class='span5'>
+						<input  id='purchase_content' class='hiddenInput' placeholder='' value='{{title}}'></div>
+					<div class='span3 widget-toolbar'>
+						<input  id='purchase_price' class='hiddenInput' placeholder='' value='{{title}}'></div>
+					<div class='span3 widget-toolbar'>
+						<input id='purchase_count'  class='hiddenInput' placeholder='' value='{{title}}'></div>
+					<div class='span1 widget-toolbar'>
+						<button id ="caigou_del" class='btn btn-mini bigger btn-info '>删除</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="attachments" class="tab-pane">
+
+		<div class="file-list">
+			<button id="file_upload">选择附件</button>
+		</div>
+	</div>
+
+</div>

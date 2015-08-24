@@ -1,0 +1,11 @@
+{
+ "title" : "用户日志"
+ ,
+ "description" : "用户日志"
+ ,
+ "no-header" : true
+ ,
+ "scripts" : ["jquery-ui" , "slimscroll" , "easy-pie-chart" , "sparkline"]
+ ,
+ "ie_scripts" : [{"version":8, "name":"excanvas"}]
+}

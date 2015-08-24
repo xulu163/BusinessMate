@@ -1,0 +1,68 @@
+<div class="row-fluid">
+	<div class="span12">
+		<h3 class="header smaller lighter blue">
+			角色管理
+
+			<span class="pull-right">
+				<a href="/roleDetail"><font size="-1" color="black"><b>权限明细</b></font></a>
+				<button id="rbtn" class="btn btn-purple btn-small">+添加角色</button>
+			</span>
+			
+		</h3>
+		<table class="table table-striped table-bordered table-hover">
+			<thead>
+				<tr>
+					<th class="center">角色名</th>
+					<th class="center">授权</th>
+					<th class="center">操作</th>
+				</tr>
+			</thead>
+			<tbody id="rbody"></tbody>
+		</table>
+		<div id="tip"></div>
+		<div id="paginator"></div>
+	</div>
+	<div id="roleAdd" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+			<h3 id="myModalLabel">添加角色</h3>
+		</div>
+		<div class="modal-body">
+			<form class="form-horizontal">
+				<div class="control-group">
+					<label class="control-label" for="rolename">角色名</label>
+					<div class="controls">
+						<input type="text" id="rolename" placeholder="rolename"></div>
+				</div>
+			</form>
+		</div>
+		<div class="modal-footer">
+			<button id="roleAddSave"class="btn btn-primary">确定</button>
+			<button id="release" class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
+		</div>
+	</div>
+
+	<div id="roleAuthorize" style="width:700px" class="modal hide fade"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+			<h3 id="myModalLabel">角色授权</h3>
+		</div>
+		<div class="modal-body">
+			<table class="table table-striped table-bordered table-hover">
+				<thead>
+					<tr>
+						<th class="center">授权</th>
+						<th class="center">资源名</th>
+						<th class="center" colspan="4">操作</th>
+					</tr>
+				</thead>
+				<tbody id="authorizeBody"></tbody>
+			</table>
+		</div>
+		<div class="modal-footer">
+		    <input type="button" id="roleAuthCommit" class="btn btn-primary" value="提  交" />
+			<input type="hidden" id="saveRole" value=""/>
+			<button id="release" class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
+		</div>
+	</div>
+</div>

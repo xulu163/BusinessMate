@@ -1,4 +1,8 @@
 .DS_Store
 *.log
+<<<<<<< HEAD
 files/*
 uploads/*
+=======
+node_modules/*
+>>>>>>> parent of e9bacc7... ll

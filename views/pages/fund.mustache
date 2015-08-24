@@ -1,0 +1,75 @@
+<input id="getStart" type="hidden" value="{{params.start}}">
+<input id="getEnd" type="hidden" value="{{params.end}}">
+<div class="row-fluid" style="margin-top:-10px">
+	<div class="span12">
+		<div id="table-header">
+			<h3 class="header smaller lighter blue">
+				已回款汇总
+				<span style="font-size:16px">
+					(已付款记录)
+					<span id="selectItem">
+						展现
+						<select id="item" class="mySelect">
+							<option value="10" selected="selected">10</option>
+							<option value="25">20</option>
+							<option value="50">30</option>
+						</select>
+						条
+					</span>
+				</span>
+
+				<span class="fund_search pull-right">
+					<span>回款时间:</span>
+					<span class="group_right">
+						<span>
+							<input id="fbeginDate" class="date-picker search_date" type="text" data-date-format="yyyy-mm-dd" readonly="true"></span>
+						至
+						<span>
+							<input id="fendDate" class="date-picker search_date" type="text" data-date-format="yyyy-mm-dd" readonly="true"></span>
+					</span>
+
+					<button id="fsearchBtn" class="btn btn-info btn-small">搜　索</button>
+					<input type="button" id="exportExcel_fun" value="Excel" class="btn btn-small btn-info"/>
+				</span>
+			</h3>
+		</div>
+		<table id="table_bug_report" class="table table-striped table-bordered table-hover">
+			<thead>
+				<tr>
+					<th class="center">合同名称</th>
+					<th class="hidden-480 center">甲方</th>
+					<th class="hidden-480 center">乙方</th>
+					<th class="nouse center sortTd nouse1">
+						<span>合同金额</span>
+                        <img src="{{{path.images}}}/sort_both1.png" class="sortBoth" />
+						<img src="{{{path.images}}}/sort_desc1.png" class="sortDesc" />
+						<img src="{{{path.images}}}/sort_asc1.png" class="sortAsc"/>
+					</th>
+					<th class="nouse center sortTd nouse1">
+						<span>回款金额</span>
+					    <img src="{{{path.images}}}/sort_both1.png" class="sortBoth" />
+						<img src="{{{path.images}}}/sort_desc1.png" class="sortDesc" />
+						<img src="{{{path.images}}}/sort_asc1.png" class="sortAsc"/>
+					</th>
+					<th class="hidden-phone center sortTd nouse1">
+						<span>回款比率</span>
+						<img src="{{{path.images}}}/sort_both1.png" class="sortBoth" />
+						<img src="{{{path.images}}}/sort_desc1.png" class="sortDesc" />
+						<img src="{{{path.images}}}/sort_asc1.png" class="sortAsc"/>
+					</th>
+					<th class="hidden-480 center sortTd showDesc">
+						<span>回款日期</span>
+						<img src="{{{path.images}}}/sort_both1.png" class="sortBoth" />
+						<img src="{{{path.images}}}/sort_desc1.png" class="sortDesc" />
+						<img src="{{{path.images}}}/sort_asc1.png" class="sortAsc"/>
+					</th>
+					<th class="hidden-480 center">备注</th>
+				</tr>
+			</thead>
+			<tbody id="table1"></tbody>
+		</table>
+        <div id="tip"></div>
+		<div id="paginator"></div>
+	</div>
+</div>
+<!--table1-->
